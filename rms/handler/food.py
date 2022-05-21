@@ -8,8 +8,8 @@ def get_all_food_for_customer(slot, food_type):
 
 
 def add_new_food(name, category, timeslot, price, in_stock):
-    response = add_food(name, category, timeslot, price, in_stock)
-    food = get_food_by_id(response["_id"])
+    food_object_id = add_food(name, category, timeslot, price, in_stock)
+    food = get_food_by_id(food_object_id)
     return single(food)
 
 

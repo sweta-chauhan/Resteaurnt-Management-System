@@ -45,8 +45,8 @@ def get_cart_handler(cart_id, customer_id=None):
 
 
 def add_new_cart_handler(customer_id):
-    new_cart = add_new_cart(customer_id)
-    new_cart = get_cart_by_id(new_cart["_id"])
+    new_cart_object_id = add_new_cart(customer_id)
+    new_cart = get_cart_by_id(new_cart_object_id)
 
     return single(new_cart)
 

@@ -3,8 +3,8 @@ from rms.views.customer import single
 
 
 def add_new_customer_handler(name, phone_number):
-    new_customer = add_customer(name, phone_number)
-    new_customer = get_customer_by_id(new_customer["_id"])
+    new_customer_object_id = add_customer(name, phone_number)
+    new_customer = get_customer_by_id(new_customer_object_id)
     return single(new_customer)
 
 
