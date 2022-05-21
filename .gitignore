@@ -1,0 +1,16 @@
+node_modules/
+dist/
+*.class
+*.py[cod]
+.idea/
+TEST*.xml
+*.app
+*.exe
+*.warg
+*.mp4
+*.tiff
+*.avi
+*.flv
+*.mov
+*.wmv
+*temp.py
