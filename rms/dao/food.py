@@ -38,11 +38,11 @@ def update_food_status(id, in_stock=False):
 
 def get_all_food(time_slot, category):
     return food_collection.find({
-        "timeSlot": time_slot,
+        "slot": time_slot,
         "category": category
     })
 
 
 def get_food_by_id(id):
-    return food_collection.find({"_id": ObjectId(id)})
+    return food_collection.find_one({"_id": id})
 

@@ -17,9 +17,9 @@ class Food(restful.Resource):
 
         return {"status": 200, "result": resp}
 
-    def patch(self, id):
+    def patch(self, id=None):
         param_json = request.args.to_dict()
-        status = param_json.get('status')
+        status = param_json.get('status') == 'true'
         if id:
             resp = update_food_handler(id, status)
 
@@ -27,7 +27,7 @@ class Food(restful.Resource):
 
         return {"status": 401}
 
-    def get(self, id):
+    def get(self, id=None):
         param_json = request.args.to_dict()
         slot = param_json.get('slot')
         food_type = param_json.get('foodType')

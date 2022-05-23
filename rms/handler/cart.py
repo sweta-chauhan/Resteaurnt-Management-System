@@ -1,3 +1,5 @@
+from bson import ObjectId
+
 from rms.dao.cart import clear_product_in_cart, get_cart_by_customer_id, get_cart_by_id, \
     add_product_in_cart, add_new_cart
 from rms.dao.food import get_food_by_id
@@ -7,7 +9,7 @@ from rms.views.cart import single
 
 def patch_handler(cart_id, action, body):
     if action == "ADD_ITEM":
-        food_item_id_count_map = {item["id"] for item in body}
+        food_item_id_count_map = {item["id"]: item["quantity"] for item in body}
         add_product_in_cart(cart_id, food_item_id_count_map)
 
     if action == "CHECKOUT":
@@ -20,7 +22,7 @@ def patch_handler(cart_id, action, body):
         customer_id = cart["customerId"]
 
         for item in food_list:
-            item_price = get_food_by_id(id)["price"]
+            item_price = get_food_by_id(ObjectId(item["id"]))["price"]
             bill_amount += item_price*item["quantity"]
 
         create_new_order(

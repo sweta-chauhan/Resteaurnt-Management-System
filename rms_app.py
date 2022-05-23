@@ -12,7 +12,7 @@ from rms.controller.http.customer import Customer
 
 # End Points
 api.add_resource(Food, 'food/', 'food/<string:id>')
-api.add_resource(Order, 'order/', 'order<string:id>')
+api.add_resource(Order, 'order/', 'order/<string:id>')
 api.add_resource(Cart, 'cart/', 'cart/<string:id>')
 api.add_resource(Customer, 'customer/', 'customer/<string:id>')
 

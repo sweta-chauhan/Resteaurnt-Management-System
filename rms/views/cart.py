@@ -6,7 +6,8 @@ def single(cart):
         "foodList": cart["foodList"],
         "customerId": cart["customerId"],
         "lastUpdatedAt": get_current_datetime_in_str(cart["lastUpdatedAt"]),
-        "createdAt": get_current_datetime_in_str(cart["createdAt"])
+        "createdAt": get_current_datetime_in_str(cart["createdAt"]),
+        "cartId": str(cart["_id"])
     }
 
 

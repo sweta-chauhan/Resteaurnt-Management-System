@@ -11,7 +11,7 @@ class Cart(restful.Resource):
         resp = add_new_cart_handler(customer_id)
         return {"status": 200, "result": resp}
 
-    def patch(self, id):
+    def patch(self, id=None):
         request_data = request.get_json(force=True)
         action = request_data.get("action")
         body = request_data.get("body")
@@ -26,7 +26,7 @@ class Cart(restful.Resource):
 
         return {"status": 401}
 
-    def get(self, id):
+    def get(self, id=None):
         param_json = request.args.to_dict()
         customer_id = param_json.get("customerId")
 
@@ -41,5 +41,4 @@ class Cart(restful.Resource):
             return {"status": 200, "result": resp}
 
         return {"status": 401}
-
 

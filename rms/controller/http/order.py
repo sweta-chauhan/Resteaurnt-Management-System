@@ -5,7 +5,7 @@ from rms.handler.order import patch_order_status
 
 
 class Order(restful.Resource):
-    def patch(self, id):
+    def patch(self, id=None):
         param_json = request.args.to_dict()
         status = param_json.get('status')
         if id:

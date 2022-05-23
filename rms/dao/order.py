@@ -15,7 +15,7 @@ def default_structure_of_order_doc(id, bill_amount, payment_status, mode):
         "modifiedAt": None,
         "billAmount": bill_amount,
         "paymentStatus": payment_status,
-        "mode": mode
+        "mode": mode,
     }
 
 
@@ -31,7 +31,8 @@ def update_order_status(id, status):
             },
             {
                 "$set": {
-                    "status": status
+                    "status": status,
+                    "modifiedAt": get_current_datetime()
                 }
             },
         upsert=True,

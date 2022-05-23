@@ -24,10 +24,10 @@ def update_customer(id, name=None, phone_number=None):
     update_dict = {}
 
     if name:
-        update_dict["name"] = name
+        update_dict["firstName"] = name
 
     if phone_number:
-        update_dict["phoneNumber"] = phone_number
+        update_dict["phoneNumer"] = phone_number
 
     if update_dict:
         return customer_collection.find_one_and_update(

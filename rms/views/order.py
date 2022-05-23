@@ -9,5 +9,6 @@ def single(order):
         "modifiedAt": get_current_datetime_in_str(order["modifiedAt"]),
         "billAmount": order["billAmount"],
         "paymentStatus": order["paymentStatus"],
-        "mode": order["mode"]
+        "mode": order["mode"],
+        "orderId": str(order["_id"])
     }

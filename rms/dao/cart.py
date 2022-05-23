@@ -50,19 +50,28 @@ def add_product_in_cart(cart_id, foodlist):
     :return: cursor object
     """
 
-    prev_record = cart_collection.find({
+    prev_record = cart_collection.find_one({
         "_id": ObjectId(cart_id)
     })
     food_list = []
     if prev_record:
         food_list = prev_record["foodList"]
+        if food_list:
+            for food in food_list:
+                if food["id"] in foodlist:
+                    food["quantity"] = foodlist[food["id"]]
+        else:
+            for id in foodlist:
+                food_item = {}
+                food_item["id"] = id
+                food_item["quantity"] = foodlist[id]
+                food_list.append(food_item)
 
-        for food in food_list:
-            if food["id"] in foodlist:
-                food["quantity"] = foodlist[food["id"]]
     else:
         for id in foodlist:
-            food_list[id] = foodlist[id]
+            food_item = {}
+            food_item[id] = foodlist[id]
+            food_list.append(food_item)
 
     return cart_collection.find_one_and_update(
         {

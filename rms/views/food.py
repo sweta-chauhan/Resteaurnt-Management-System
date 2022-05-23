@@ -1,6 +1,6 @@
 def single(food):
     return {
-        "id": str(food["id"]),
+        "id": str(food["_id"]),
         "name": food["name"],
         "slot": food["slot"],
         "price": food["price"],
